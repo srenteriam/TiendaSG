@@ -1,0 +1,32 @@
+<div class="container section1">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="text-center titulo1">
+        <h1>Lista de Productos</h1>
+        </div>
+        <div>
+            <table class="table table-light table-hover tabla1">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Unidades</th>
+                    <th scope="col">P. Venta</th>
+                    <th scope="col">P. Compra</th>
+                    <th scope="col"><i class="fas fa-user-plus agregar1" routerLink="/crearproducto"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let mostrar of listado">
+                    <td scope="row">{{mostrar._id}}</td>
+                    <td>{{mostrar.NombreProducto}}</td>
+                    <td>{{mostrar.Inventario}}</td>
+                    <td>{{mostrar.PrecioVenta | currency: 'USD'}}</td>
+                    <td>{{mostrar.PrecioCompra | currency: 'USD' }}</td>
+                    <td><i class="fas fa-user-edit editar1" routerLink="/editarp/{{mostrar._id}}"></i>
+                        <i class="fas fa-user-minus eliminar1"></i></td>
+                  </tr>
+                  </tbody>
+              </table>
+        </div>
+    </div>
+</div>

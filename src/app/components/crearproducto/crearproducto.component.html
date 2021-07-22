@@ -1,0 +1,30 @@
+<div class="mensaje1">
+    {{mensaje}}
+</div>
+
+
+<div class="container section1">
+    <div class="row shadow-lg section2">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+            <h1>Crear Producto</h1>
+            <div>
+                <div class="mt-5 mb-5 ms-4 me-4">
+                    <input type="text" class="form-control form-control-lg" placeholder="Nombre del Producto" [(ngModel)]="NombreP">
+                </div>
+                <div class="mb-5 ms-4 me-4">
+                    <input type="number" class="form-control form-control-lg" placeholder="Inventario" [(ngModel)]="Inven">
+                </div>
+                <div class="mb-5 ms-4 me-4">
+                    <input type="number" class="form-control form-control-lg" placeholder="Precio Venta" [(ngModel)]="PreVen">
+                </div>
+                <div class="mb-5 ms-4 me-4">
+                    <input type="number" class="form-control form-control-lg" placeholder="Precio Compra" [(ngModel)]="PreCom">
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-light mb-5 me-4" routerLink="/productos">VOLVER</button>
+                    <button type="button" class="btn btn-outline-success mb-5 ms-4" (click)="crearproducto()" >ACEPTAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

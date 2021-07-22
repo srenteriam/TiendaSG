@@ -1,0 +1,38 @@
+.section1{
+    margin-top: 150px;
+    width: 25%;
+}
+
+@media screen and (max-width: 1300px) {
+    .section1 {
+        width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .section1 {
+        width: 80%;
+    }
+  }
+
+.section2{
+    border-radius: 20px;
+    background-color: #032c13;
+}
+
+.section2 h1{
+    color: white;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mensaje1{
+    position: fixed;
+    left: 50px;
+    top: 150px;
+    z-index: 100;
+    color: #032c13;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}

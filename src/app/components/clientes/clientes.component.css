@@ -1,0 +1,36 @@
+.section1{
+    margin-top: 100px;
+}
+
+.titulo1 h1{
+    color: #032c13;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tabla1 th{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #032c13;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.fas{
+    color: #032c13;
+    margin-left: 15px;
+}
+
+.eliminar1:hover{
+    cursor: pointer !important;
+    color: red !important;
+}
+
+.editar1:hover{
+    cursor: pointer !important;
+    color: rgb(12, 12, 241) !important;
+}
+
+.agregar1:hover{
+    cursor: pointer !important;
+    color: green !important;
+}

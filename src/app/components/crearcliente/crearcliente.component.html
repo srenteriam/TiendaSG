@@ -1,0 +1,33 @@
+<div class="container section1">
+    <div class="row shadow-lg section2">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+            <h1>Crear Cliente</h1>
+            <div>
+                <div class="mt-4 mb-3 ms-4 me-4">
+                    <label class="titulo2">Nombre</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Nombre" [(ngModel)]="NombreP">
+                </div>
+                <div class="mb-3 ms-4 me-4">
+                    <label class="titulo2">Apellido</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Apellido" [(ngModel)]="Inven">
+                </div>
+                <div class="mb-3 ms-4 me-4">
+                    <label class="titulo2">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control form-control-lg" placeholder="Fecha de Nacimiento" [(ngModel)]="PreVen">
+                </div>
+                <div class="mb-3 ms-4 me-4">
+                    <label class="titulo2">Telefono</label>
+                    <input type="number" class="form-control form-control-lg" placeholder="Telefono" [(ngModel)]="PreCom">
+                </div>
+                <div class="mb-3 ms-4 me-4">
+                    <label class="titulo2">Edad</label>
+                    <input type="number" class="form-control form-control-lg" placeholder="Edad" >
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-light mb-5 me-4" routerLink="/clientes">VOLVER</button>
+                    <button type="button" class="btn btn-outline-success mb-5 ms-4" (click)="crearproducto()" >ACEPTAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

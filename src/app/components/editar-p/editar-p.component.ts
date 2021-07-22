@@ -33,9 +33,9 @@ export class EditarPComponent implements OnInit {
         
         console.log(res);
         // this.NombreP = res[0].NombreProducto;
-        // this.Inven = this.res[0].Inventario;
-        // this.PreVen = this.res[0].PrecioVenta;
-        // this.PreCom = this.res[0].PrecioCompra;
+        // this.Inven = res[0].Inventario;
+        // this.PreVen = res[0].PrecioVenta;
+        // this.PreCom = res[0].PrecioCompra;
       }
     )
 

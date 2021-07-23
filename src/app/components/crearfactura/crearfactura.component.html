@@ -1,3 +1,7 @@
+<div class="mensaje1">
+    {{mensaje}}
+</div>
+
 <div class="container section1">
     <div class="row shadow-lg section2">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
@@ -5,33 +9,30 @@
             <div>
                 <div class="mt-4 mb-3 ms-4 me-4">
                     <label class="titulo2">Fecha de Factura</label>
-                    <input type="date" class="form-control form-control-lg" >
+                    <input type="date" class="form-control form-control-lg" [(ngModel)]="FechaF" >
                 </div>
                 <div class="mb-3 ms-4 me-4">
                     <label class="titulo2">Seleccione el Cliente</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="IdC">
+                        <option selected >...</option>
+                        <option value="item" *ngFor="let verc of listaclientes">{{verc.Nombre}} {{verc.Apellido}}</option>
+                        
                       </select>
                 </div>
                 <div class="mb-3 ms-4 me-4">
                     <label class="titulo2">Selleccion el Producto</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="IdP">
+                        <option selected >...</option>
+                        <option value="item" *ngFor="let verp of listaproductos">{{verp.NombreProducto}}</option>
+                                              </select>
                 </div>
                 <div class="mb-3 ms-4 me-4">
                     <label class="titulo2">Unidades</label>
-                    <input type="number" class="form-control form-control-lg" placeholder="Unidades" >
+                    <input type="number" class="form-control form-control-lg" placeholder="Unidades" [(ngModel)]="Unis">
                 </div>
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-outline-light mb-5 me-4" routerLink="/facturas">VOLVER</button>
-                    <button type="button" class="btn btn-outline-success mb-5 ms-4"  >ACEPTAR</button>
+                    <button type="button" class="btn btn-outline-success mb-5 ms-4" (click)="crearfactura()" >ACEPTAR</button>
                 </div>
             </div>
         </div>

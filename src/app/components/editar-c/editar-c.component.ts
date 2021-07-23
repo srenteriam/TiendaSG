@@ -30,11 +30,11 @@ export class EditarCComponent implements OnInit {
       (res) => {
         
         console.log(res);
-      // this.NombreC = res[0].Nombre;
-      // this.Inven = res[0].Inventario;
-      // this.PreVen = res[0].PrecioVenta;
-      // this.PreCom = res[0].PrecioCompra;
-      // this.PreCom = res[0].PrecioCompra;
+        this.NombreC = res[0].Nombre;
+        this.ApellidoC = res[0].Apellido;
+        this.NaciC = res[0].FechaNacimiento;
+        this.TelefonoC = res[0].Telefono;
+        this.EdadC = res[0].Edad;
       }
     )
 
@@ -42,7 +42,7 @@ export class EditarCComponent implements OnInit {
 
   Actualizar(){
 
-    this.peticion.Post('http://localhost:3000/actualizarcliente',{idCliente:this.activateRoute.snapshot.params.id, Nombre:this.NombreC, Apellido:this.ApellidoC, PrecioVenta:this.NaciC, Telefono:this.TelefonoC, Edad:this.EdadC}).then(
+    this.peticion.Post('http://localhost:3000/actualizarcliente',{idCliente:this.activateRoute.snapshot.params.id, Nombre:this.NombreC, Apellido:this.ApellidoC, FechaNacimiento:this.NaciC, Telefono:this.TelefonoC, Edad:this.EdadC}).then(
       (res) => {
         
         console.log(res);

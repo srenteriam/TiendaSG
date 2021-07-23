@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var FacturaSchema = new Schema({
-    NumeroFactura: String,
+    NumeroFactura: Number,
     FechaFactura: String,
     IdCliente: String,
     IdProducto: String,

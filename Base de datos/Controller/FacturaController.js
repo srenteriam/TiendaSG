@@ -2,8 +2,8 @@
 const Factura = require('../models/Factura.js')
 
 // Crear
-function crearFactura(request, response) {
-
+function createFactura(request, response) {
+    
     var params = request.body;
     console.log(params)
 
@@ -12,7 +12,7 @@ function crearFactura(request, response) {
     factura.NumeroFactura = params.NumeroFactura;
     factura.FechaFactura = params.FechaFactura;
     factura.IdCliente = params.IdCliente;
-    factura.Idproducto = params.Idproducto;
+    factura.IdProducto = params.IdProducto;
     factura.Unidades = params.Unidades;
     factura.TotalVenta = params.TotalVenta;
 
@@ -25,6 +25,10 @@ function crearFactura(request, response) {
         }
     })
 }
+
+
+
+
 
 // Actualizar
 function updateFactura(request, response) {
@@ -77,7 +81,7 @@ function listarFactura(request, response) {
 }
 
 module.exports = {
-    crearFactura,
+    createFactura,
     updateFactura,
     deleteFactura,
     listarFactura

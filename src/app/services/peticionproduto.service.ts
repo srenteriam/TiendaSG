@@ -9,7 +9,7 @@ export class PeticionprodutoService {
   constructor(private http:HttpClient) { }
 
 
-  Post(url:string, data:{}){
+  Post(url:string, data:{}):Promise<any>{
 
     let promise = new Promise((resolve,reject) => {
       this.http.post(url, data)
@@ -22,7 +22,6 @@ export class PeticionprodutoService {
       );
     });
     return promise;
-
   }
 
   Get(url:string){

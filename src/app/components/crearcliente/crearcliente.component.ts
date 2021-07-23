@@ -19,6 +19,7 @@ export class CrearclienteComponent implements OnInit {
   constructor(private Peticion:PeticionprodutoService, private router:Router) { }
 
   ngOnInit(): void {
+    
   }
 
   validarcliente(){

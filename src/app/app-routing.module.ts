@@ -20,6 +20,7 @@ const routes: Routes = [
   {path:'crearcliente', component: CrearclienteComponent},
   {path:'crearfactura', component: CrearfacturaComponent},
   {path:'editarp/:id', component: EditarPComponent},
+  {path:'productos/:id', component: ProductosComponent},
   
   {path:'**', redirectTo:'productos',pathMatch:'full'},
   

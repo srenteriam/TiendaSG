@@ -33,7 +33,7 @@ function updateProducto(request, response) {
     console.log(idProducto)
     console.log(params)
 
-    Producto.findByIdAndUpdate(idProducto, params, function(error, ordenupdate) {
+    Producto.findByIdAndUpdate(idProducto, params, function(error, productoupdate) {
         if (error) {
             response.status(500).send({ mensaje: "se presento un error en el servidor" })
         } else {
@@ -51,11 +51,11 @@ function deleteProducto(request, response) {
     console.log(idProducto)
 
 
-    Producto.findByIdAndDelete(idProducto, function(error, ordedelete) {
+    Producto.findByIdAndDelete(idProducto, function(error,productodelete) {
         if (error) {
             response.status(500).send({ mensaje: "se presento un error en el servidor" })
         } else {
-            response.status(200).send({ mensaje: "Producto eliminado" })
+            response.status(200).send({ mensaje: "Producto eliminado"})
         }
     })
 }

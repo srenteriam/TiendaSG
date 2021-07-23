@@ -1,6 +1,7 @@
 import { PeticionprodutoService } from './../../services/peticionproduto.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 
@@ -11,12 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditarPComponent implements OnInit {
 
-  NombreP:string = "";
-  Inven:number = 0;
-  PreVen:Number = 0;
-  PreCom:number = 0;
+  NombreP= "";
+  Inven= "";
+  PreVen= "";
+  PreCom="";
   
-  constructor(private activateRoute: ActivatedRoute, private peticion:PeticionprodutoService) { }
+  constructor(private activateRoute: ActivatedRoute, private peticion:PeticionprodutoService, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -32,10 +33,23 @@ export class EditarPComponent implements OnInit {
       (res) => {
         
         console.log(res);
-        // this.NombreP = res[0].NombreProducto;
-        // this.Inven = res[0].Inventario;
-        // this.PreVen = res[0].PrecioVenta;
-        // this.PreCom = res[0].PrecioCompra;
+      // this.NombreP = res[0].NombreProducto;
+      // this.Inven = res[0].Inventario;
+      // this.PreVen = res[0].PrecioVenta;
+      // this.PreCom = res[0].PrecioCompra;
+      }
+    )
+
+  }
+
+  Actualizar(){
+
+    this.peticion.Post('http://localhost:3000/actualizar',{idProducto:this.activateRoute.snapshot.params.id, NombreProducto:this.NombreP, Inventario:this.Inven, PrecioVenta:this.PreVen, PrecioCompra:this.PreCom}).then(
+      (res) => {
+        
+        console.log(res);
+        this.router.navigate(["/productos"])
+      
       }
     )
 

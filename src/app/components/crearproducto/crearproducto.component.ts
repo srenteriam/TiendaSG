@@ -66,7 +66,4 @@ export class CrearproductoComponent implements OnInit {
 
 
 
-
-
-
 }

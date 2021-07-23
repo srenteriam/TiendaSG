@@ -7,7 +7,7 @@
             <table class="table table-light table-hover tabla1">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Fecha de Nacimiento</th>
@@ -17,26 +17,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td scope="row">1</td>
-                    <td>Santiago</td>
-                    <td>Renteria</td>
-                    <td>30/09/1992</td>
-                    <td>3173824538</td>
-                    <td>28</td>
-                    <td><i class="fas fa-user-edit editar1"></i>
-                        <i class="fas fa-user-minus eliminar1"></i></td>
+                  <tr *ngFor="let verc of listaclientes">
+                    <td scope="row">{{verc._id}}</td>
+                    <td>{{verc.Nombre}}</td>
+                    <td>{{verc.Apellido}}</td>
+                    <td>{{verc.FechaNacimiento | date}}</td>
+                    <td>{{verc.Telefono}}</td>
+                    <td>{{verc.Edad}}</td>
+                    <td><i class="fas fa-user-edit editar1" routerLink="/editarc/{{verc._id}}"></i>
+                        <i class="fas fa-user-minus eliminar1" routerLink="/clientes/{{verc._id}}"></i></td>
                   </tr>
-                  <tr>
-                    <td scope="row">2</td>
-                    <td>Camila</td>
-                    <td>Velasquez</td>
-                    <td>01/12/1993</td>
-                    <td>3056666666</td>
-                    <td>27</td>
-                    <td><i class="fas fa-user-edit editar1"></i><i class="fas fa-user-minus eliminar1"></i></td>
-                  </tr>
-                </tbody>
+                  </tbody>
               </table>
         </div>
     </div>

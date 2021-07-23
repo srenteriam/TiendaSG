@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 var ClienteSchema = new Schema({
     Nombre: String,
     Apellido: String,
-    FechaNacimiento: Number,
+    FechaNacimiento: Date,
     Telefono: Number,
     Edad: Number,
 

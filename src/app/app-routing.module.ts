@@ -8,6 +8,8 @@ import { CrearproductoComponent } from './components/crearproducto/crearproducto
 import { CrearclienteComponent } from './components/crearcliente/crearcliente.component';
 import { CrearfacturaComponent } from './components/crearfactura/crearfactura.component';
 import { EditarPComponent } from './components/editar-p/editar-p.component';
+import { EditarCComponent } from './components/editar-c/editar-c.component';
+
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path:'crearfactura', component: CrearfacturaComponent},
   {path:'editarp/:id', component: EditarPComponent},
   {path:'productos/:id', component: ProductosComponent},
+  {path:'clientes/:id', component: ClientesComponent},
+  {path:'editarc/:id', component: EditarCComponent},
   
   {path:'**', redirectTo:'productos',pathMatch:'full'},
   

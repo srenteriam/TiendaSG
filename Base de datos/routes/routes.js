@@ -53,6 +53,11 @@ api.post('/listarcliente', function(request, response) {
     ClienteController.listarCliente(request, response)
 })
 
+api.post('/listarclientei', function(request, response) {
+
+    ClienteController.listarClientei(request, response)
+})
+
 // Rutas Facturas
 
 const FacturaController = require('../Controller/FacturaController.js')

@@ -8,7 +8,7 @@ var FacturaSchema = new Schema({
     NumeroFactura: String,
     FechaFactura: String,
     IdCliente: String,
-    Idproducto: String,
+    IdProducto: String,
     Unidades: Number,
     TotalVenta: Number,
 

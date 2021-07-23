@@ -2,14 +2,14 @@
 const Cliente = require('../models/Cliente.js')
 
 // Crear
-function crearCliente(request, response) {
+function createCliente(request, response) {
 
     var params = request.body;
     console.log(params)
 
     var cliente = new Cliente();
 
-    cliente.nombre = params.nombre;
+    cliente.Nombre = params.Nombre;
     cliente.Apellido = params.Apellido;
     cliente.FechaNacimiento = params.FechaNacimiento;
     cliente.Telefono = params.Telefono;
@@ -75,9 +75,24 @@ function listarCliente(request, response) {
     })
 }
 
+function listarClientei(request, response) {
+
+    var idCliente = request.body.idCliente;
+
+    Cliente.find({_id:idCliente}, (error, listaCliente) => {
+        if (error) {
+            response.status(500).send({ mensaje: "error en el servidor" })
+        } else {
+            response.status(200).send(listaCliente)
+        }
+    })
+}
+
+
 module.exports = {
-    crearCliente,
+    createCliente,
     updateCliente,
     deleteCliente,
-    listarCliente
+    listarCliente,
+    listarClientei
 }

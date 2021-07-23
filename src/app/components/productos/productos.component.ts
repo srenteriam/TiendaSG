@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeticionprodutoService } from 'src/app/services/peticionproduto.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+
 
 
 

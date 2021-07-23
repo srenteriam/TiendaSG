@@ -14,6 +14,7 @@ import { CrearfacturaComponent } from './components/crearfactura/crearfactura.co
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EditarPComponent } from './components/editar-p/editar-p.component';
+import { EditarCComponent } from './components/editar-c/editar-c.component';
 
 HttpClientModule
 
@@ -28,7 +29,8 @@ HttpClientModule
     CrearproductoComponent,
     CrearclienteComponent,
     CrearfacturaComponent,
-    EditarPComponent
+    EditarPComponent,
+    EditarCComponent
   ],
   imports: [
     BrowserModule,

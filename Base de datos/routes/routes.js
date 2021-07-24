@@ -80,3 +80,27 @@ api.post('/listarFactura', function(request, response) {
 
     FacturaController.listarFactura(request, response)
 })
+
+//rutas Ventas
+
+const VentaController = require('../Controller/VentaController.js')
+api.post('/venta', function(request, response) {
+
+    VentaController.registrar(request, response)
+})
+
+api.get('/datosventa/:id', function(request, response) {
+
+    VentaController.datosVenta(request, response)
+})
+
+api.get('/listaventa', function(request, response) {
+
+    VentaController.listaVenta(request, response)
+})
+
+api.get('/detallesventa/:id', function(request, response) {
+
+    VentaController.detallesVenta(request, response)
+})
+

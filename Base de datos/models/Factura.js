@@ -6,9 +6,9 @@ const Schema = mongoose.Schema;
 
 var FacturaSchema = new Schema({
     NumeroFactura: Number,
-    FechaFactura: String,
-    IdCliente: String,
-    IdProducto: String,
+    FechaFactura: {type: Date, default:Date.now},
+    IdCliente: {type: Schema.ObjectId, ref:'Cliente'},
+    IdProducto: {type: Schema.ObjectId, ref:'Producto'},
     Unidades: Number,
     TotalVenta: Number,
 

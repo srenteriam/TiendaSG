@@ -25,6 +25,7 @@ const routes: Routes = [
   {path:'productos/:id', component: ProductosComponent},
   {path:'clientes/:id', component: ClientesComponent},
   {path:'editarc/:id', component: EditarCComponent},
+  {path:'facturas/:id', component: FacturasComponent},
   
   {path:'**', redirectTo:'productos',pathMatch:'full'},
   

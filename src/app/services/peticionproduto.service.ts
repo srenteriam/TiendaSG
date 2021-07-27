@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class PeticionprodutoService {
     return promise;
   }
 
-  Get(url:string){
+  Get(url:string):Promise<any>{
 
     let promise = new Promise((resolve,reject) => {
       this.http.get(url)
@@ -37,5 +38,10 @@ export class PeticionprodutoService {
       );
     });
        return promise;
+  }
+
+  save_data(data):Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.post('http://127.0.0.1:3000/venta',data,{headers:headers});
   }
 }

@@ -6,35 +6,42 @@
     <div class="row shadow-lg section2">
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
             <h1>Crear Factura</h1>
-            <div>
-                <div class="mt-4 mb-3 ms-4 me-4">
-                    <label class="titulo2">Fecha de Factura</label>
-                    <input type="date" class="form-control form-control-lg" [(ngModel)]="FechaF" >
-                </div>
+            <form #detalleForm="ngForm" (ngSubmit)="save_detalle(detalleForm)">
                 <div class="mb-3 ms-4 me-4">
                     <label class="titulo2">Seleccione el Cliente</label>
-                    <select class="form-select" aria-label="Default select example" [(ngModel)]="IdC">
-                        <option selected >...</option>
-                        <option value="item" *ngFor="let verc of listaclientes">{{verc.Nombre}} {{verc.Apellido}}</option>
-                        
-                      </select>
+                    <select class="form-select" aria-label="Default select example" name="idcliente"
+                        [(ngModel)]="idcliente">
+                        <option selected disabled>...</option>
+                        <option value="{{item._id}}" *ngFor="let item of listaclientes">{{item.Nombre}}
+                            {{item.Apellido}}
+                        </option>
+
+                    </select>
                 </div>
                 <div class="mb-3 ms-4 me-4">
-                    <label class="titulo2">Selleccion el Producto</label>
-                    <select class="form-select" aria-label="Default select example" [(ngModel)]="IdP">
-                        <option selected >...</option>
-                        <option value="item" *ngFor="let verp of listaproductos">{{verp.NombreProducto}}</option>
-                                              </select>
+                    <label class="titulo2">Seleccione el Producto</label>
+                    <select class="form-select" aria-label="Default select example" name="idproducto" 
+                    [(ngModel)]="detalle.idproducto" (change)="get_data_producto($any($event.target).value)">
+                        <option value="" selected disabled>...</option>
+                        <option value="{{item._id}}" *ngFor="let item of listaproductos">{{item.NombreProducto}}
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3 ms-4 me-4">
+                    <label class="titulo2">Precio venta</label>
+                    <input type="number" value="" readonly="readonly" class="form-control form-control-lg" name="PreVen" placeholder="Precio venta"
+                        [(ngModel)]="PreVen">
                 </div>
                 <div class="mb-3 ms-4 me-4">
                     <label class="titulo2">Unidades</label>
-                    <input type="number" class="form-control form-control-lg" placeholder="Unidades" [(ngModel)]="Unis">
+                    <input type="number" value="" class="form-control form-control-lg" name="unidades" placeholder="Unidades"
+                        [(ngModel)]="unidades">
                 </div>
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-outline-light mb-5 me-4" routerLink="/facturas">VOLVER</button>
-                    <button type="button" class="btn btn-outline-success mb-5 ms-4" (click)="crearfactura()" >ACEPTAR</button>
+                    <button type="submit" class="btn btn-outline-success mb-5 ms-4" >ACEPTAR</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

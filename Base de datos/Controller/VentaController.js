@@ -7,8 +7,8 @@ function registrar (request,response){
     var venta = new Venta();
     venta.idCliente = params.idCliente;
 
-    venta.save((error,Venta_save) =>{
-        if(Venta_save){
+    venta.save((error,venta_save) =>{
+        if(venta_save){
             let detalles = params.detalles;
 
             
@@ -16,7 +16,11 @@ function registrar (request,response){
                 var ventadetallada = new VentaDetallada();
                 ventadetallada.idProducto = element.idProducto;
                 ventadetallada.cantidad = element.cantidad;
-                ventadetallada.idventa = Venta_save._id;
+                ventadetallada.idventa = venta_save._id;
+                ventadetallada.idCliente= venta_save.idCliente;
+                ventadetallada.PrecioVenta = element.PrecioVenta;
+                ventadetallada.Total = element.Total;
+
                 
                 ventadetallada.save((error,detalle_save)=>{
                     if(detalle_save){
@@ -27,12 +31,12 @@ function registrar (request,response){
                                 })
 
                             }else{
-                                response.send('No se encontro el producto');
+                                response.send(error);
                             }
                         });
 
                     }else{
-                        response.send('No se realizo el registro');
+                        response.send(error);
                     }
                 })
             })
@@ -40,7 +44,7 @@ function registrar (request,response){
 
 
         }else{
-            response.send('No se realizo el registro');
+            response.send(error);
         }
     })
 
@@ -67,11 +71,11 @@ function datosVenta(request,response){
 }
 
 function listaVenta(request,response){
-    Venta.find().populate('idCliente').exec((error,params_ventas)=>{
-        if(params_ventas){
-            response.status(200).send({ventas:params_ventas});
-        }else{
-            response.status(404).send({message:"No se encuentra registro alguno"});
+    VentaDetallada.find().populate('idCliente').populate('idProducto').exec((error,listaventas)=>{
+        if (error) {
+            response.status(500).send({ mensaje: "error en el servidor" })
+        } else {
+            response.status(200).send({ventas:listaventas})
         }
     })
 
@@ -90,10 +94,47 @@ function detallesVenta(request,response){
 
 }
 
+// borrar
+
+function deleteVenta(request, response) {
+
+    var idVenta = request.body.idVenta;
+
+    console.log(idVenta)
+
+
+    VentaDetallada.findByIdAndDelete(idVenta, function(error, Ventadelete) {
+        if (error) {
+            response.status(500).send({ mensaje: "se presento un error en el servidor" })
+        } else {
+            response.status(200).send({ mensaje: "Venta eliminado" })
+        }
+    })
+}
+
+
+function Buscarventa(request, response) {
+
+    var VentaDetallada = request.body.FechaFactura;
+
+    VentaDetallada.find({created_at: {
+        $gte: ("2010-04-29T00:00:00.000Z"),
+        $lt: ("2010-05-01T00:00:00.000Z")
+     }}, (error, BuscarVenta) => {
+        if (error) {
+            response.status(500).send({ mensaje: "error en el servidor" })
+        } else {
+            response.status(200).send(BuscarVenta)
+        }
+    })
+}
+
 module.exports={
     registrar,
     datosVenta,
     listaVenta,
-    detallesVenta
+    detallesVenta,
+    Buscarventa,
+    deleteVenta
 
 }

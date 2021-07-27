@@ -1,1 +1,33 @@
-<p>consulta works!</p>
+<div class="container section1">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="text-center titulo1">
+        <h1>Lista de facturas</h1>
+        </div>
+        <div>
+            <table class="table table-light table-hover tabla1">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Precio Venta</th>
+                    <th scope="col">Nombre Cliente</th>
+                    <th scope="col">Apellido Cliente</th>
+                    <th scope="col">Total Venta</th>
+                    <th scope="col">Fecha Venta</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listado">
+                    <td scope="row">{{item.idProducto.NombreProducto}}</td>
+                    <td>{{item.idProducto.PrecioVenta | currency: 'USD'}}</td>
+                    <td>{{item.idCliente.Nombre}}</td>                    
+                    <td>{{item.idCliente.Apellido}}</td>
+                    <td>{{item.Total | currency: 'USD'}}</td>
+                   <td>{{item.FechaFactura | date }}</td>
+                   
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

@@ -17,25 +17,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td scope="row">000001</td>
-                    <td>21/07/2021</td>
-                    <td>Santiago</td>
-                    <td>Banano</td>
-                    <td>3</td>
-                    <td>900</td>
-                    <td><i class="fas fa-user-edit editar1"></i>
-                        <i class="fas fa-user-minus eliminar1"></i></td>
+                  <tr *ngFor="let item of listado">
+                    <td scope="row">{{item._id}}</td>
+                    <td>{{item.FechaFactura | date }}</td>
+                    <td>{{item.idCliente._id}}</td>
+                    <td>{{item.idProducto._id}}</td>
+                    <td>{{item.cantidad}}</td>
+                    <td>{{item.Total}}</td>
+                   
+                    <td>
+                        <i class="fas fa-user-minus eliminar1" routerLink="/facturas/{{item._id}}"></i></td>
                   </tr>
-                  <tr>
-                    <td scope="row">000002</td>
-                    <td>21/07/2021</td>
-                    <td>Camila</td>
-                    <td>Coco</td>
-                    <td>1</td>
-                    <td>300</td>
-                    <td><i class="fas fa-user-edit editar1"></i><i class="fas fa-user-minus eliminar1"></i></td>
-                  </tr>
+                  
                 </tbody>
               </table>
         </div>

@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 var VentaSchema = new Schema({
     
-    idCliente: {type: Schema.ObjectId, ref:'Cliente'},
+    idCliente: {type: Schema.ObjectId, ref:'cliente'},
     FechaFactura: {type: Date, default:Date.now},
     
     

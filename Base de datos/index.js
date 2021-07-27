@@ -3,20 +3,13 @@ global.api = express();
 const port = 3000;
 const mongoose = require('mongoose');
 
-api.all('*',function(req, res, next){
-
- 
-
-    var whitelist = req.headers.origin;
-  
-    res.header('Access-Control-Allow-Origin', whitelist);
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,HEAD');  
-    res.header('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-    res.header("Access-Control-Allow-Credentials", "true");
-    //res.header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
-  
+api.use((req,res,next)=>{
+    res.header('Content-Type: application/json');
+    res.header('Access-Control-Allow-Origin','*'); 
+    res.header('Access-Control-Allow-Headers','Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods','GET, PUT, POST, DELETE, OPTIONS');
+    res.header('Allow','GET, PUT, POST, DELETE, OPTIONS');
     next();
-       
 });
 
 

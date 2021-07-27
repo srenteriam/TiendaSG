@@ -58,28 +58,6 @@ api.post('/listarclientei', function(request, response) {
     ClienteController.listarClientei(request, response)
 })
 
-// Rutas Facturas
-
-const FacturaController = require('../Controller/FacturaController.js')
-api.post('/createFactura', function(request, response) {
-
-    FacturaController.createFactura(request, response)
-})
-
-api.post('/actualizarFactura', function(request, response) {
-
-    FacturaController.updateFactura(request, response)
-})
-
-api.post('/eliminarFactura', function(request, response) {
-
-    FacturaController.deleteFactura(request, response)
-})
-
-api.post('/listarFactura', function(request, response) {
-
-    FacturaController.listarFactura(request, response)
-})
 
 //rutas Ventas
 
@@ -102,5 +80,15 @@ api.get('/listaventa', function(request, response) {
 api.get('/detallesventa/:id', function(request, response) {
 
     VentaController.detallesVenta(request, response)
+})
+
+api.post('/buscarventa', function(request, response) {
+
+    VentaController.Buscarventa(request, response)
+})
+
+api.post('/eliminarventa', function(request, response) {
+
+    VentaController.deleteVenta(request, response)
 })
 
